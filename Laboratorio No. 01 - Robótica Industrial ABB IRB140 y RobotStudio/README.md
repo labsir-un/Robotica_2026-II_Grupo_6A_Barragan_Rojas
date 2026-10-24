@@ -14,7 +14,7 @@
 
 ## 1. Resumen
 
-Se desarrolló una celda simplificada de decoración automática de un pastel con un robot ABB IRB 140 (controlador IRC5) y una banda transportadora. El pastel se representa con una caja de `[largo × ancho × alto]` mm, que viaja sobre la banda hasta la estación de trabajo. Allí el robot escribe con un marcador los nombres de los integrantes (**Julieta** y **Diego**) y traza un dibujo personalizado. Después el pastel decorado sale por el otro extremo de la banda.
+Se desarrolló una celda simplificada de decoración automática de un pastel con un robot ABB IRB 140 (controlador IRC5) y una banda transportadora. El pastel se representa con una caja de `[largo × ancho × alto]` mm, que viaja sobre la banda hasta la estación de trabajo. Allí el robot escribe con un marcador los nombres de los integrantes (**Julieth** y **Diego**) y traza un dibujo personalizado. Después el pastel decorado sale por el otro extremo de la banda.
 
 <img width="1148" height="1531" alt="image" src="https://github.com/user-attachments/assets/0cd97c2c-0269-4644-a143-a3dd91c9c86f" />
 
@@ -82,9 +82,9 @@ Todos los movimientos de decoración y de reposo usan `Pen_TCP`, así que las tr
 
 **En Robotsudio:** El TCP de `Pen_TCP` obtenido en RobotStudio proviene del modelo CAD, es decir, de una herramienta ideal, se asigna directamente a partir de la geometría del modelo de la herramienta, sin considerar errores de fabricación, de montaje en la brida ni de holgura.
 
-**En el robot real**: El TCP se calibró de forma manual en el FlexPendant con el método de TCP de 4 puntos. Como referencia fija se usó una punta metálica fija en el espacio de trabajo, y se llevó la punta del marcador (la punta de la herramienta) hasta tocar ese mismo punto en 4 aproximaciones, cada una con una orientación diferentedel robot. Con estas 4 poses, el controlador resuelve la posición del TCP de modo que la punta de la herramienta coincida con el punto de referencia en todas ellas.
+**En el robot real**: El TCP se calibró de forma manual en el FlexPendant con el método de TCP de 4 puntos. Como referencia fija se usó una punta metálica fija en el espacio de trabajo, y se llevó la punta del marcador (la punta de la herramienta) hasta tocar ese mismo punto en 4 aproximaciones, cada una con una orientación diferente del robot. Con estas 4 poses, el controlador resuelve la posición del TCP de modo que la punta de la herramienta coincida con el punto de referencia en todas ellas.
 
-El TCP del CAD es el valor nominal, mientras que el calibrado en el robot real incorpora las desviaciones físicas de la herramienta montada, por lo que difeiere ligeramente del de RobotStudio.
+El TCP del CAD es el valor nominal, mientras que el calibrado en el robot real incorpora las desviaciones físicas de la herramienta montada, por lo que difiere ligeramente del de RobotStudio.
 
 
 ## 3. Work object
@@ -104,7 +104,7 @@ Los targets se definen respecto al work object **`Workobject_2`**, no respecto a
     -   `MoveJ` para los desplazamientos de aproximación y salida de la zona de trabajo.
 4.  **Levantamiento del marcador.** Cada trazo continuo empieza con un punto de aproximación sobre la superficie (Z = −50), baja al punto de contacto (Z = 0) y sube al terminar. El marcador no se arrastra entre letras. En las letras con trazo interior (por ejemplo "D" y "o") el lápiz se levanta entre el contorno exterior y el interior. El punto de la "i" se dibuja al final del nombre, en un trazo aparte.
 5.  **Esquinas en ángulo recto.** El robot hace una pausa corta (`WaitTime 0.5`) en las esquinas y en los puntos de apoyo y levantamiento. Así el trazo no se redondea y las esquinas quedan en ángulo recto, y el lápiz no se levanta antes de terminar el trazo, evitando interrupciones.
-6.  **Condiciones de la guía.** Todos los movimientos de decoración usan velocidad `v100` y zona `z10`, dentro de los límites del enunciado. 
+6.  **Condiciones de la guía.** Todos los movimientos de decoración usan velocidad `v100` y zona `z10`, dentro de los límites de la guía de laboratorio. 
 
 
 ### Configuraciones del robot
@@ -188,7 +188,7 @@ Se probó implementar el modo de mantenimiento como interrupción (`TRAP`). Func
 | `WHILE ... DO ... ENDWHILE` (interno) | Espera en reposo: mientras no hay ninguna entrada activa, vuelve a HOME y apaga `DO_02`. | `WHILE DI_01=0 AND DI_02=0 AND DI_03=0 DO` |
 | `IF ... THEN ... ENDIF` | Selección exclusiva de modo: decoración (`DI_01`), mantenimiento (`DI_02`) o Aura (`DI_03`). | `IF DI_01=1 AND DI_02=0 AND DI_03=0 THEN` |
 | `FOR i FROM 1 TO 3 DO ... ENDFOR` | Repite tres veces `Path_Aura`. | `FOR i FROM 1 TO 3 DO` |
-| `WaitTime` | Pausa de 0.5 s tras bajar el lápiz y antes de subirlo en cada trazo. También son los tiempos fijos de la banda: 3.5 s y 2 s, marcados `!por definir` en el código. | `WaitTime 0.5;`<br>`WaitTime 3.5; !por definir`<br>`WaitTime 2; !por definir` |
+| `WaitTime` | Pausa de 0.5 s tras bajar el lápiz y antes de subirlo en cada trazo. También para asegurar que el lápiz terminará el trazo completo antes de levantarse del workobject. | `WaitTime 0.5;`<br>`WaitTime 3.5; `<br>`WaitTime 2; |
 
 ### Entradas y salidas digitales
 
