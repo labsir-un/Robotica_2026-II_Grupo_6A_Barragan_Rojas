@@ -248,8 +248,8 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 
 
 ## Anexo A: Código RAPID completo
-[Archivo RAPID](Module1.mod)
+[Ver Archivo RAPID](Module1.mod)
 
 ## Anexo B: CAD Herramienta
 
-[Archivo CAD](Herramienta.st)
+[Ver Archivo CAD](Herramienta.stl)
