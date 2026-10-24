@@ -113,17 +113,16 @@ Los targets se definen respecto al work object **`Workobject_2`**, no respecto a
 ## 4. Generación de las trayectorias
 
 1.  **Stencil en Onshape.** Se diseñó el dibujo (nombres y figura) como un stencil y se importó a RobotStudio. Su silueta sirvió de guía para ubicar los targets de la trayectoria.
-2.  **Tipos de movimiento.**
+ <img width="709" height="601" alt="image" src="https://github.com/user-attachments/assets/6930fef0-e083-4df0-814d-02b01c8ef502" />
+
+3.  **Tipos de movimiento.**
     -   `MoveL` para los tramos rectos.
     -   `MoveC` para curvas (letras redondas y partes del dibujo).
     -   `MoveJ` para los desplazamientos de aproximación y salida de la zona de trabajo.
-3.  **Levantamiento del marcador.** Cada trazo continuo empieza con un punto de aproximación sobre la superficie (Z = −50), baja al punto de contacto (Z = 0) y sube al terminar. El marcador no se arrastra entre letras. En las letras con trazo interior (por ejemplo "D" y "o") el lápiz se levanta entre el contorno exterior y el interior. El punto de la "i" se dibuja al final del nombre, en un trazo aparte.
-4.  **Esquinas en ángulo recto.** El robot hace una pausa corta (`WaitTime 0.5`) en las esquinas y en los puntos de apoyo y levantamiento. Así el trazo no se redondea y las esquinas quedan en ángulo recto, y el lápiz no se levanta antes de terminar el trazo, evitando interrupciones.
-5.  **Condiciones de la guía.** Todos los movimientos de decoración usan velocidad `v100` y zona `z10`, dentro de los límites del enunciado. 
+4.  **Levantamiento del marcador.** Cada trazo continuo empieza con un punto de aproximación sobre la superficie (Z = −50), baja al punto de contacto (Z = 0) y sube al terminar. El marcador no se arrastra entre letras. En las letras con trazo interior (por ejemplo "D" y "o") el lápiz se levanta entre el contorno exterior y el interior. El punto de la "i" se dibuja al final del nombre, en un trazo aparte.
+5.  **Esquinas en ángulo recto.** El robot hace una pausa corta (`WaitTime 0.5`) en las esquinas y en los puntos de apoyo y levantamiento. Así el trazo no se redondea y las esquinas quedan en ángulo recto, y el lápiz no se levanta antes de terminar el trazo, evitando interrupciones.
+6.  **Condiciones de la guía.** Todos los movimientos de decoración usan velocidad `v100` y zona `z10`, dentro de los límites del enunciado. 
 
-> `[IMAGEN: Stencil (nombres y dibujo) con los targets de la trayectoria sobre la silueta.]`
-
-> `[IMAGEN: Resultado del trazo sobre el pastel (simulación y robot real).]`
 
 ### Configuraciones del robot
 
@@ -232,7 +231,6 @@ Se probó implementar el modo de mantenimiento como interrupción (`TRAP`). Func
 -   `FWD_Conveyor` funciona como **selector de sentido**: en 1 el movimiento es hacia un lado, en 0 hacia el otro.
 -   `BWD_Conveyor` **enciende el motor**.
 -   El programa deja `FWD_Conveyor = 1` y mueve la banda solo con `BWD_Conveyor`, con tiempos fijos (`WaitTime`).
--   `[Explicar cómo se verificó el movimiento en ambos sentidos (FWD = 0), con la banda detenida antes del cambio.]`
 
 No se usó ningún sensor: la posición del pastel se controla solo con **tiempos**. Los tiempos finales son 3.5 s (entrada) y 2 s (salida).
 
@@ -250,5 +248,6 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 Enlace al video: 
 
 ## Anexo A: Código RAPID completo
-
+[Descargar el manual](docs/manual.pdf)
+[Ver el script](scripts/setup.sh)
 ## Anexo B: CAD Herramienta
