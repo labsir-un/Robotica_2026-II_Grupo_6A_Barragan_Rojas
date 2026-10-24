@@ -2,32 +2,15 @@
 
 ## Índice
 1.  [Resumen](#1-resumen)
-    -   [Diagrama de flujo de la secuencia completa del sistema](#diagrama-de-flujo-de-la-secuencia-completa-del-sistema)
-2.  [Diseño de la herramienta y TCP](#2-dise%C3%B1o-de-la-herramienta-y-tcp)
-    -   [Diseño detallado de la herramienta](#dise%C3%B1o-detallado-de-la-herramienta)
-    -   [Fabricación](#fabricaci%C3%B3n)
-    -   [Integración en RobotStudio](#integraci%C3%B3n-en-robotstudio)
-    -   [Comparación de la calibración: RobotStudio vs. robot real](#comparaci%C3%B3n-de-la-calibraci%C3%B3n-robotstudio-vs-robot-real)
+2.  [Diseño de la herramienta y TCP](#2-diseño-de-la-herramienta-y-tcp)
 3.  [Work object](#3-work-object)
-4.  [Generación de las trayectorias](#4-generaci%C3%B3n-de-las-trayectorias)
-    -   [Configuraciones del robot](#configuraciones-del-robot)
+4.  [Generación de las trayectorias](#4-generación-de-las-trayectorias)
 5.  [Estructura del programa RAPID](#5-estructura-del-programa-rapid)
-    -   [5.1 Rutina principal (`main`)](#51-rutina-principal-main)
-    -   [5.2 Ciclo de decoración (`DI_01`)](#52-ciclo-de-decoraci%C3%B3n-di_01)
-    -   [5.3 Pose de mantenimiento (`DI_02`)](#53-pose-de-mantenimiento-di_02)
-    -   [5.4 Farmear Aura (`DI_03`)](#54-farmear-aura-di_03)
-    -   [5.5 NOTA: `IF` en vez de interrupciones](#55-nota-if-en-vez-de-interrupciones)
-6.  [Instrucciones y funciones de RAPID utilizadas](#7-instrucciones-y-funciones-de-rapid-utilizadas)
-    -   [Estructura del programa](#estructura-del-programa)
-    -   [Instrucciones de movimiento](#instrucciones-de-movimiento)
-    -   [Control de flujo y tiempo](#control-de-flujo-y-tiempo)
-    -   [Entradas y salidas digitales](#entradas-y-salidas-digitales)
-    -   [Tipos de datos](#tipos-de-datos)
-7.  [Control de la banda transportadora](#8-control-de-la-banda-transportadora)
-    -   [Calibración de los tiempos](#calibraci%C3%B3n-de-los-tiempos)
-8.  [Dimensiones del montaje y plano de planta](#9-dimensiones-del-montaje-y-plano-de-planta)
-9.  [Evidencia de funcionamiento / Video de la práctica](#11-evidencia-de-funcionamiento--video-de-la-pr%C3%A1ctica)
-10.  [Anexo A: Código RAPID completo](#anexo-a-c%C3%B3digo-rapid-completo)
+6.  [Instrucciones y funciones de RAPID utilizadas](#6-instrucciones-y-funciones-de-rapid-utilizadas)
+7.  [Control de la banda transportadora](#7-control-de-la-banda-transportadora)
+8.  [Evidencia de funcionamiento / Video de la práctica](#8-evidencia-de-funcionamiento--video-de-la-práctica)
+9.  [Anexo A: Código RAPID completo](#anexo-a-código-rapid-completo)
+10. [Anexo B: CAD Herramienta](#anexo-b-cad-herramienta)
 
 ## 1. Resumen
 
@@ -172,7 +155,7 @@ Se probó implementar el modo de mantenimiento como interrupción (`TRAP`). Func
 
 	
 
-## 7. Instrucciones y funciones de RAPID utilizadas
+## 6. Instrucciones y funciones de RAPID utilizadas
 
 ### Estructura del programa
 
@@ -226,7 +209,7 @@ Se probó implementar el modo de mantenimiento como interrupción (`TRAP`). Func
 | `confdata` | Configuración de cada target, dentro del `robtarget`. Los de dibujo usan `[-2,-1,0,1]` y `Home` usa `[-1,0,-1,0]`. | `[-2,-1,0,1]` |
 
 
-## 8. Control de la banda transportadora
+## 7. Control de la banda transportadora
 
 -   `FWD_Conveyor` funciona como **selector de sentido**: en 1 el movimiento es hacia un lado, en 0 hacia el otro.
 -   `BWD_Conveyor` **enciende el motor**.
@@ -243,8 +226,7 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 
 
 
-## 9.Video de la práctica (Evidencia de funcionamiento)
-
+## 8. Evidencia de funcionamiento / Video de la práctica
 
 
 ## Anexo A: Código RAPID completo
