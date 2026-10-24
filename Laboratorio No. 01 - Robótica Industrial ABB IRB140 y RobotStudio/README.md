@@ -63,7 +63,8 @@ La herramienta que sostiene el marcador se modeló en Onshape a partir los sigui
 3.  **Tolerancia de hundimiento del marcador.** El diseño deja un recorrido en el que el marcador puede hundirse sin dañarse y sin dañar la herramienta. Esto deja crierta tolerancia en cuanto a  los errores de altura entre la punta y la superficie del pastel.
 
 
-> `[IMAGEN: Plano acotado de la herramienta (vistas y cotas principales, incluyendo el recorrido de hundimiento del marcador y el ángulo del marcador respecto al flange).]`
+<img width="768" height="549" alt="image" src="https://github.com/user-attachments/assets/01da3543-a835-419d-9b2a-c98033cd1a63" />
+
 
 #### Fabricación
 
@@ -87,13 +88,9 @@ El cuaternión equivale a una rotación de unos 67.5° alrededor del eje Y del f
 
 Todos los movimientos de decoración y de reposo usan `Pen_TCP`, así que las trayectorias del stencil quedan referidas a la punta del marcador.
 
-### Modelo CAD de la herramienta
 
-> `[IMAGEN: Figura 1. Modelo CAD de la herramienta en Onshape.]`
 
-> `[IMAGEN: Figura 2. Diseño y montaje de la herramienta en el flange del robot.]`
 
-Archivos del modelo: `[enlace al documento de Onshape]` y `[archivo .sat / .step adjunto]`.
 
 ### Comparación de la calibración: RobotStudio vs. robot real
 
@@ -1269,3 +1266,5 @@ ENDPROC
 ENDMODULE
 
 ```
+
+
