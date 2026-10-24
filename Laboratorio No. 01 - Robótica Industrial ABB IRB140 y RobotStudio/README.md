@@ -245,9 +245,11 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 
 ## 9.Video de la práctica (Evidencia de funcionamiento)
 
-Enlace al video: 
+
 
 ## Anexo A: Código RAPID completo
-[Descargar el manual](docs/manual.pdf)
-[Ver el script](scripts/setup.sh)
+[Archivo RAPID](Module1.mod)
+
 ## Anexo B: CAD Herramienta
+
+[Archivo CAD](Herramienta.st)
