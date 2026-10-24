@@ -65,6 +65,8 @@ La herramienta que sostiene el marcador se modeló en Onshape a partir los sigui
 
 <img width="768" height="549" alt="image" src="https://github.com/user-attachments/assets/01da3543-a835-419d-9b2a-c98033cd1a63" />
 
+[Ver modelo 3D interactivo](Herramienta.stl)
+
 
 #### Fabricación
 
