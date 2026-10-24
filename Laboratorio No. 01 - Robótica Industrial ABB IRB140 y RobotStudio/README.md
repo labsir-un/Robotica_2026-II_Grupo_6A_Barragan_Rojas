@@ -7,7 +7,6 @@
     -   [Diseño detallado de la herramienta](#dise%C3%B1o-detallado-de-la-herramienta)
     -   [Fabricación](#fabricaci%C3%B3n)
     -   [Integración en RobotStudio](#integraci%C3%B3n-en-robotstudio)
-    -   [Modelo CAD de la herramienta](#modelo-cad-de-la-herramienta)
     -   [Comparación de la calibración: RobotStudio vs. robot real](#comparaci%C3%B3n-de-la-calibraci%C3%B3n-robotstudio-vs-robot-real)
 3.  [Work object](#3-work-object)
 4.  [Generación de las trayectorias](#4-generaci%C3%B3n-de-las-trayectorias)
@@ -34,7 +33,8 @@
 
 Se desarrolló una celda simplificada de decoración automática de un pastel con un robot ABB IRB 140 (controlador IRC5) y una banda transportadora. El pastel se representa con una caja de `[largo × ancho × alto]` mm, que viaja sobre la banda hasta la estación de trabajo. Allí el robot escribe con un marcador los nombres de los integrantes (**Julieta** y **Diego**) y traza un dibujo personalizado. Después el pastel decorado sale por el otro extremo de la banda.
 
-> `[IMAGEN: Figura 0. Diagrama del sistema (robot, banda, pastel y estación de trabajo).]`
+<img width="1148" height="1531" alt="image" src="https://github.com/user-attachments/assets/0cd97c2c-0269-4644-a143-a3dd91c9c86f" />
+
 
 Un único programa RAPID (`Module1`) atiende tres modos de operación, seleccionados por entradas digitales:
 
@@ -47,9 +47,10 @@ Un único programa RAPID (`Module1`) atiende tres modos de operación, seleccion
 Las salidas `DO_01`, `DO_02` y `DO_03` son testigos físicos. Cada una permanece en 1 solo mientras se ejecuta su rutina y vale 0 en cualquier otro momento.
 
 ### Diagrama de flujo de la secuencia completa del sistema.
-El siguiente diagrama describe la secuencia completa: arranque, espera en HOME, selección de modo y los tres modos de operación.
+El siguiente diagrama describe la secuencia completa: arranque, espera en HOME, selección de modo y los tres modos de operación:
 
-	> `[IMAGEN (opcional): exportar el diagrama anterior como imagen si el visor del informe no renderiza Mermaid.]`
+	<img width="5420" height="5300" alt="untitled@2x(2)" src="https://github.com/user-attachments/assets/160cfdd0-a4de-45f4-b8a8-d4e22a6e490f" />
+
 
 ## 2. Diseño de la herramienta y TCP
 
@@ -67,6 +68,9 @@ La herramienta que sostiene el marcador se modeló en Onshape a partir los sigui
 #### Fabricación
 
 La herramienta se imprimió en dos partes en PETG. Se eligió este material por ser menos rígido que el PLA, lo que ayuda a absorber pequeños contactos del marcador contra la superficie.
+
+<img width="1132" height="1046" alt="image" src="https://github.com/user-attachments/assets/f319e6e8-675d-43c5-9898-a6f421d9e625" />
+
 
 #### Integración en RobotStudio
 
