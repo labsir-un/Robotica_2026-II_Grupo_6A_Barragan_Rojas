@@ -241,5 +241,5 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 <img width="840" height="594" alt="image" src="https://github.com/user-attachments/assets/9671d57a-e6e3-47ea-b934-fa9f8ea57035" />
 
 
-![Plano de planta](plano_planta_v3(3).svg)
+![Plano de planta](plano_planta_v3(2).svg)
 
