@@ -11,9 +11,8 @@
 
 <h2>Profesores: <br>Pedro Fabián Cárdenas Herrera <br> Manuel Felipe Carranza Montenegro</h2>
 
-<h4>Nombre Integrante 1<br>
-    Nombre Integrante 2<br>
-    Nombre Integrante 3</h4>
+<h4>Diego A. Barragan M.<br>
+    Julieth M. Rojas C.</h4>
 
 <p>
   <img alt="Ubuntu 24.04 LTS" src="https://img.shields.io/badge/Ubuntu-24.04%20LTS-E95420?logo=ubuntu&logoColor=white">
@@ -36,7 +35,7 @@
 
 ## Descripción
 
-Este repositorio corresponde al desarrollo de las actividades del curso de **Robótica 2026-I**.  
+Este repositorio corresponde al desarrollo de las actividades del curso de **Robótica 2026-II**.  
 Aquí se documentan los laboratorios, avances, resultados y la presentación de los integrantes del equipo.
 
 ---
@@ -52,49 +51,26 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 
 ## Integrantes del equipo
 
-### Integrante 1
-<div align="center">
-  <img src="./assets/integrantes/integrante1.jpg" alt="Foto integrante 1" style="border-radius: 50%; width: 180px;"><br>
-</div>
+### Diego A. Barragan M.
 
-- **Nombre completo:** Nombre Apellido
+- **Nombre completo:** Diego A. Barragan M.
 - **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Integración ROS 2, documentación, simulación
-- **Intereses:** Robótica móvil, visión artificial, automatización
+- **Correo institucional:** dbarraganm@unal.edu.co
+- **Usuario de GitHub:** [Chopsueyb](https://github.com/Chopsueyb)
+- **Rol en el equipo:** Documentación, modelado y control de robots
+- **Intereses:** Robótica autónoma, móvil y agrícola
 - **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
+  Estudiante de octavo semestre de Ingeniería Mecatrónica de la Universidad Nacional de Colombia.
 
 ---
 
-### Integrante 2
-<div align="center">
-  <img src="./assets/integrantes/integrante2.jpg" alt="Foto integrante 2" style="border-radius: 50%; width: 180px;"><br>
-</div>
+### Julieth M. Rojas C.
 
-- **Nombre completo:** Nombre Apellido
+- **Nombre completo:** Julieth M. Rojas C.
 - **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Modelado, programación, control
-- **Intereses:** Manipulación, ROS 2, control de robots
+- **Correo institucional:** julrojasc@unal.edu.co
+- **Usuario de GitHub:** [n3mit0](https://github.com/n3mit0)
+- **Rol en el equipo:** Programación, simulación y control de robots
+- **Intereses:** _Pendiente_
 - **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
-
----
-
-### Integrante 3
-<div align="center">
-  <img src="./assets/integrantes/integrante3.jpg" alt="Foto integrante 3" style="border-radius: 50%; width: 180px;"><br>
-</div>
-
-- **Nombre completo:** Nombre Apellido
-- **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Documentación, pruebas, simulación
-- **Intereses:** Robótica industrial, sistemas autónomos, IA
-- **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
-
+  Estudiante de octavo semestre de Ingeniería Mecatrónica de la Universidad Nacional de Colombia.
