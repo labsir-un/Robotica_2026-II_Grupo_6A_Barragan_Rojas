@@ -227,7 +227,7 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 
 
 ## 8. Evidencia de funcionamiento / Video de la práctica
-
+[![Ver el video](https://img.youtube.com/vi/bM02j_UAcYI/hqdefault.jpg)](https://www.youtube.com/watch?v=bM02j_UAcYI)
 
 ## Anexo A: Código RAPID completo
 [Ver Archivo RAPID](Module1.mod)
