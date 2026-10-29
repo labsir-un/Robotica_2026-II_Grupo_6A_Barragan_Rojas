@@ -11,6 +11,7 @@
 8.  [Evidencia de funcionamiento / Video de la práctica](#8-evidencia-de-funcionamiento--video-de-la-práctica)
 9.  [Anexo A: Código RAPID completo](#anexo-a-código-rapid-completo)
 10. [Anexo B: CAD Herramienta](#anexo-b-cad-herramienta)
+11. [Anexo C: Plano de planta](#anexo-c-plano-de-planta)
 
 ## 1. Resumen
 
@@ -235,3 +236,7 @@ En las pruebas reales el tiempo calculado quedó **bastante lejos** del requerid
 ## Anexo B: CAD Herramienta
 
 [Ver Archivo CAD](Herramienta.stl)
+
+## Anexo C: Plano de planta
+![Plano de planta](plano_planta_v3.svg)
+
