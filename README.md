@@ -71,6 +71,6 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 - **Correo institucional:** julrojasc@unal.edu.co
 - **Usuario de GitHub:** [n3mit0](https://github.com/n3mit0)
 - **Rol en el equipo:** Programación, simulación y control de robots
-- **Intereses:** _Pendiente_
+- **Intereses:** Robótica autónoma, móvil y agrícola.
 - **Descripción breve:**  
   Estudiante de octavo semestre de Ingeniería Mecatrónica de la Universidad Nacional de Colombia.
