@@ -16,36 +16,19 @@
 
 ## Tabla de contenido
 
-1. [Contenido del repositorio](#1-contenido-del-repositorio)
-2. [Comparación Motoman MH6 vs ABB IRB140](#2-comparación-motoman-mh6-vs-abb-irb140)
-3. [Configuraciones home del Motoman MH6](#3-configuraciones-home-del-motoman-mh6)
-4. [Movimiento manual del Motoman](#4-movimiento-manual-del-motoman)
-5. [Niveles de velocidad manual](#5-niveles-de-velocidad-manual)
-6. [RoboDK: funcionalidades y comunicación con el manipulador](#6-robodk-funcionalidades-y-comunicación-con-el-manipulador)
-7. [RoboDK vs RobotStudio](#7-robodk-vs-robotstudio)
-8. [Trayectoria polar](#8-trayectoria-polar)
-9. [Cómo ejecutar el código](#9-cómo-ejecutar-el-código)
-10. [Referencias](#10-referencias)
+1. [Comparación Motoman MH6 vs ABB IRB140](#1-comparación-motoman-mh6-vs-abb-irb140)
+2. [Configuraciones home del Motoman MH6](#2-configuraciones-home-del-motoman-mh6)
+3. [Movimiento manual del Motoman](#3-movimiento-manual-del-motoman)
+4. [Niveles de velocidad manual](#4-niveles-de-velocidad-manual)
+5. [RoboDK: funcionalidades y comunicación con el manipulador](#5-robodk-funcionalidades-y-comunicación-con-el-manipulador)
+6. [RoboDK vs RobotStudio](#6-robodk-vs-robotstudio)
+7. [Trayectoria polar](#7-trayectoria-polar)
+8. [Cómo ejecutar el código](#8-cómo-ejecutar-el-código)
+9. [Referencias](#9-referencias)
 
 ---
 
-## 1. Contenido del repositorio
-
-| Archivo | Descripción |
-|---|---|
-| `README.md` | Este documento |
-| `corazon.py` | Script de RoboDK (Python) que dibuja la trayectoria polar (corazón) y los nombres del equipo |
-| `img/pendant_work_home.jpg` | Foto del pendant en la pantalla *WORK HOME POSITION* |
-| `img/pendant_barra_estado.jpg` | Detalle ampliado de la barra de estado del pendant |
-| `img/celda_vista_general.jpg` | Vista general de la celda y su entorno |
-| `img/motoman_pose_vertical.jpg` | Motoman MH6 con el brazo erguido (vista frontal-lateral) |
-| `img/motoman_pose_perfil.jpg` | Motoman MH6 con el brazo plegado (vista de perfil) |
-| `[POR COMPLETAR]` | Diagrama de flujo de acciones del robot |
-| `[POR COMPLETAR]` | Plano de planta de la ubicación de los elementos |
-
----
-
-## 2. Comparación Motoman MH6 vs ABB IRB140
+## 1. Comparación Motoman MH6 vs ABB IRB140
 
 | Característica | Motoman MH6 | ABB IRB140 |
 |---|---|---|
@@ -67,11 +50,11 @@
 
 **Análisis.** Ambos robots tienen la misma carga útil (6 kg), pero el MH6 alcanza aproximadamente 76 % más (1422 mm frente a 810 mm), a costa de mayor masa (130 kg frente a 98 kg) y menor repetibilidad (±0.08 mm frente a 0.03 mm). Por eso el MH6 es más adecuado para celdas donde se necesita cubrir un espacio de trabajo grande, mientras que el IRB140 es más compacto y preciso, ideal para tareas finas en espacios reducidos. En velocidad angular, el MH6 es más rápido en los ejes S, R, B y T, y el IRB140 en el eje U (260 frente a 220 °/s).
 
-> Los datos del MH6 provienen del manual *MOTOMAN-MH6 Instructions* (HW0484977). Los del IRB140, de las hojas de datos de ABB. Ver [Referencias](#10-referencias).
+> Los datos del MH6 provienen del manual *MOTOMAN-MH6 Instructions* (HW0484977). Los del IRB140, de las hojas de datos de ABB. Ver [Referencias](#9-referencias).
 
 ---
 
-## 3. Configuraciones home del Motoman MH6
+## 2. Configuraciones home del Motoman MH6
 
 El Motoman MH6 tiene dos configuraciones home de uso distinto:
 
@@ -122,7 +105,7 @@ Los valores de *ORIGIN* y *CURRENT* son idénticos, es decir, en el momento de l
 
 ---
 
-## 4. Movimiento manual del Motoman
+## 3. Movimiento manual del Motoman
 
 El movimiento manual se hace desde el *teach pendant* (consola de programación) del controlador.
 
@@ -136,7 +119,7 @@ El movimiento manual se hace desde el *teach pendant* (consola de programación)
 1. Verificar que el área de trabajo esté libre y colocar el selector de modo del pendant en **TEACH**.
 2. Seleccionar el grupo de control (robot) con la tecla **[ROBOT]**, si el controlador tiene varios.
 3. Seleccionar el sistema de coordenadas con **[COORD]** (ver abajo).
-4. Seleccionar la velocidad manual con **[FAST]** / **[SLOW]** (ver [sección 5](#5-niveles-de-velocidad-manual)).
+4. Seleccionar la velocidad manual con **[FAST]** / **[SLOW]** (ver [sección 4](#4-niveles-de-velocidad-manual)).
 5. Activar los servos con **[SERVO ON READY]** y mantener presionado levemente el **interruptor de habilitación (enable switch)** ubicado en la parte posterior del pendant.
 6. Mantener presionada la tecla del eje deseado para mover el robot. Se pueden presionar varias teclas a la vez para mover varios ejes simultáneamente.
 7. Mientras se mantiene una tecla de eje, **[HIGH SPEED]** hace que el robot se mueva más rápido que la velocidad seleccionada (no funciona en nivel INCH).
@@ -155,7 +138,7 @@ El movimiento manual se hace desde el *teach pendant* (consola de programación)
 
 ---
 
-## 5. Niveles de velocidad manual
+## 4. Niveles de velocidad manual
 
 El controlador ofrece **cuatro niveles de velocidad** para el movimiento manual:
 
@@ -183,7 +166,7 @@ El controlador ofrece **cuatro niveles de velocidad** para el movimiento manual:
 
 ---
 
-## 6. RoboDK: funcionalidades y comunicación con el manipulador
+## 5. RoboDK: funcionalidades y comunicación con el manipulador
 
 ### Aplicaciones principales
 
@@ -224,7 +207,7 @@ Para Motoman, RoboDK usa el driver **MotomanHSE**, basado en el protocolo **High
 
 ---
 
-## 7. RoboDK vs RobotStudio
+## 6. RoboDK vs RobotStudio
 
 | Aspecto | RoboDK | RobotStudio |
 |---|---|---|
@@ -247,7 +230,7 @@ Para Motoman, RoboDK usa el driver **MotomanHSE**, basado en el protocolo **High
 
 ---
 
-## 8. Trayectoria polar
+## 7. Trayectoria polar
 
 ### Integrantes
 
@@ -343,7 +326,7 @@ Los videos deben comenzar con la introducción oficial de LabSIR.
 
 ---
 
-## 9. Cómo ejecutar el código
+## 8. Cómo ejecutar el código
 
 **Requisitos**
 
@@ -372,7 +355,7 @@ pip install robodk matplotlib
 
 ---
 
-## 10. Referencias
+## 9. Referencias
 
 - Yaskawa, *MOTOMAN-MH6 Instructions* (manual HW0484977).
 - Yaskawa, *DX100 Operator's Manual* (teclas del pendant, velocidad manual y sistemas de coordenadas).
