@@ -78,7 +78,7 @@
 
 El Motoman MH6 tiene dos configuraciones home de uso distinto:
 
-- **Posición compacta (transporte / reposo):** deja el brazo recogido, lo que reduce el espacio ocupado y es la postura usada para mover el robot (el manual la muestra en la figura *Transporting Position*, con los soportes de envío colocados).
+- **Posición compacta (transporte / reposo):** deja el brazo recogido, lo que reduce el espacio ocupado y es la postura usada para mover el robot.
 - **Posición desplegada (operación):** deja el brazo extendido y listo para trabajar.
 
 | Configuración | Nombre en el laboratorio | Uso | S (°) | L (°) | U (°) | R (°) | B (°) | T (°) |
