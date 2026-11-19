@@ -4,10 +4,8 @@
 **Universidad Nacional de Colombia** · Robótica 2026-2 · LabSIR
 
 **Integrantes:**
-- Diego A. Barragán
-- Julieth M. Rojas
-
-> **[POR COMPLETAR]** Nombres completos tal como deben aparecer (apellidos completos si aplica).
+- Diego Andrés Barragán
+- Julieth Manuela Rojas
 
 ---
 
