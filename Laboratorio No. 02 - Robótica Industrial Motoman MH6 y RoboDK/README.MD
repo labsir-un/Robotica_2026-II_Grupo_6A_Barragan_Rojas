@@ -308,7 +308,6 @@ pip install robodk matplotlib
 
 - Yaskawa, *MOTOMAN-MH6 Instructions* (manual HW0484977).
 - Yaskawa, *DX100 Operator's Manual* (teclas del pendant, velocidad manual y sistemas de coordenadas).
-- Yaskawa Motoman Knowledge Base, *Home Position, Second Home Position, and Work Home Position*.
 - ABB, hojas de datos del IRB 140 (IRB 140 product data sheet, 2021).
 - RoboDK, documentación del driver para Yaskawa Motoman: <https://robodk.com/doc/en/Robots-Motoman-RoboDK-driver-Yaskawa-Motoman.html>
-- Universidad Nacional de Colombia, *Laboratorio No. 02 — Robótica Industrial*, 2026.
+
