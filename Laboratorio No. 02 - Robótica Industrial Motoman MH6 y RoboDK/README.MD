@@ -59,7 +59,7 @@
 | Alcance | 1422 mm horizontal · 2486 mm vertical | 810 mm (hasta el centro del eje 5) |
 | Repetibilidad | ±0.08 mm (ISO 9283) | 0.03 mm (promedio, prueba ISO) |
 | Masa aproximada | 130 kg | 98 kg |
-| Montaje | Piso, pared, techo | Piso, pared, invertido (cualquier ángulo) |
+| Montaje | Piso, pared, techo | Piso y pared) |
 | Controlador | DX100 (también DXM100) | IRC5 |
 | Rango de movimiento | S ±170° · L +155°/−90° · U +250°/−175° · R ±180° · B +225°/−45° · T ±360° | Eje 1: 360° · Eje 2: 200° · Eje 3: 280° · Eje 4: 400° (por defecto, ilimitado) · Eje 5: 240° · Eje 6: 800° (por defecto, ilimitado) |
 | Velocidad máxima por eje | S 220 · L 200 · U 220 · R 410 · B 410 · T 610 °/s | Ejes 1–2: 200 · Eje 3: 260 · Ejes 4–5: 360 · Eje 6: 450 °/s |
