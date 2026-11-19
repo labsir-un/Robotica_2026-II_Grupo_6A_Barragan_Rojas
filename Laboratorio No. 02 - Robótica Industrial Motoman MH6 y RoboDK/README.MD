@@ -39,8 +39,6 @@
 
 ## 2. Contenido del repositorio
 
-Todos los archivos están en la raíz del repositorio, junto a este README.
-
 | Archivo | Descripción |
 |---|---|
 | `README.md` | Este documento |
