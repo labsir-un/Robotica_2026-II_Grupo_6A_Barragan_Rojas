@@ -43,8 +43,6 @@
 |---|---|
 | `README.md` | Este documento |
 | `corazon.py` | Script de RoboDK (Python) que dibuja la trayectoria polar (corazón) y los nombres del equipo |
-| `[POR COMPLETAR]` | Video de simulación en RoboDK |
-| `[POR COMPLETAR]` | Video de la ejecución en el Motoman físico |
 | `[POR COMPLETAR]` | Diagrama de flujo de acciones del robot |
 | `[POR COMPLETAR]` | Plano de planta de la ubicación de los elementos |
 
