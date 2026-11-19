@@ -25,18 +25,6 @@
 
 ---
 
-## 1. Objetivos
-
-- Comprender las diferencias entre las características técnicas del Motoman MH6 y el ABB IRB140.
-- Identificar y describir las configuraciones iniciales (home) del Motoman MH6.
-- Realizar movimientos manuales del Motoman en distintos modos (articulaciones, cartesianos, traslaciones y rotaciones).
-- Cambiar y controlar los niveles de velocidad del movimiento manual.
-- Comprender las aplicaciones de RoboDK y su comunicación con el manipulador.
-- Comparar RobotStudio y RoboDK.
-- Diseñar y ejecutar una trayectoria polar en RoboDK y llevarla al manipulador físico.
-
----
-
 ## 2. Contenido del repositorio
 
 | Archivo | Descripción |
