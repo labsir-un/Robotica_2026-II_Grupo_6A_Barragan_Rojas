@@ -7,6 +7,11 @@
 - Diego Andrés Barragán
 - Julieth Manuela Rojas
 
+<p align="center">
+  <img src="img/motoman_pose_perfil.jpg" alt="Manipulador Motoman MH6 en el LabSIR, vista de perfil" width="85%">
+  <br><em>Motoman MH6 del laboratorio, junto al torno CNC de la celda (vista de perfil).</em>
+</p>
+
 ---
 
 ## Tabla de contenido
@@ -25,12 +30,23 @@
 
 ---
 
+## 1. Objetivos
+
+> **[POR COMPLETAR]** Esta sección aparece en la tabla de contenido pero no estaba escrita. Agregar aquí los objetivos del laboratorio.
+
+---
+
 ## 2. Contenido del repositorio
 
 | Archivo | Descripción |
 |---|---|
 | `README.md` | Este documento |
 | `corazon.py` | Script de RoboDK (Python) que dibuja la trayectoria polar (corazón) y los nombres del equipo |
+| `img/pendant_work_home.jpg` | Foto del pendant en la pantalla *WORK HOME POSITION* |
+| `img/pendant_barra_estado.jpg` | Detalle ampliado de la barra de estado del pendant |
+| `img/celda_vista_general.jpg` | Vista general de la celda y su entorno |
+| `img/motoman_pose_vertical.jpg` | Motoman MH6 con el brazo erguido (vista frontal-lateral) |
+| `img/motoman_pose_perfil.jpg` | Motoman MH6 con el brazo plegado (vista de perfil) |
 | `[POR COMPLETAR]` | Diagrama de flujo de acciones del robot |
 | `[POR COMPLETAR]` | Plano de planta de la ubicación de los elementos |
 
@@ -69,12 +85,45 @@ El Motoman MH6 tiene dos configuraciones home de uso distinto:
 - **Posición compacta (transporte / reposo):** deja el brazo recogido, lo que reduce el espacio ocupado y es la postura usada para mover el robot.
 - **Posición desplegada (operación):** deja el brazo extendido y listo para trabajar.
 
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="img/motoman_pose_perfil.jpg" alt="Motoman MH6 con el brazo plegado, vista de perfil"><br>
+      <em>Brazo plegado (vista de perfil): el brazo superior (U) queda horizontal y recogido sobre el inferior (L).</em>
+    </td>
+    <td align="center" width="50%">
+      <img src="img/motoman_pose_vertical.jpg" alt="Motoman MH6 con el brazo erguido"><br>
+      <em>Brazo erguido (vista frontal-lateral): el brazo inferior (L) queda vertical y el superior (U) apunta hacia la herramienta.</em>
+    </td>
+  </tr>
+</table>
+
+> **[POR COMPLETAR / VERIFICAR]** Confirmar cuál de las dos posturas de las fotos corresponde a `home1` y cuál a `home2` en el laboratorio, y a cuál corresponde la lectura de la pantalla mostrada abajo. Por apariencia, la postura plegada sería la compacta y la erguida la desplegada, pero las fotos por sí solas no lo confirman.
+
 | Configuración | Nombre en el laboratorio | Uso | S (°) | L (°) | U (°) | R (°) | B (°) | T (°) |
 |---|---|---|---|---|---|---|---|---|
 | Compacta | **[POR COMPLETAR: home1 o home2]** | Transporte / reposo | [..] | [..] | [..] | [..] | [..] | [..] |
 | Desplegada | **[POR COMPLETAR: home1 o home2]** | Operación | [..] | [..] | [..] | [..] | [..] | [..] |
 
-**Nota sobre el home de calibración.** En los controladores Yaskawa, la *home position* es la postura de calibración del manipulador, marcada con indicadores de alineación en cada eje. En ella, el controlador lee **0 pulsos en cada eje**.
+### Pantalla *Work Home Position* del pendant
+
+<p align="center">
+  <img src="img/pendant_work_home.jpg" alt="Pendant del Motoman mostrando la pantalla WORK HOME POSITION" width="85%">
+  <br><em>Pendant en la pantalla <code>WORK HOME POSITION</code>, con las columnas <code>ORIGIN</code> y <code>CURRENT</code>.</em>
+</p>
+
+La pantalla muestra, para el robot R1, la posición home de trabajo (*ORIGIN*) y la posición actual (*CURRENT*) de cada eje, expresadas en **pulsos** del encoder:
+
+| Eje | S | L | U | R | B | T |
+|---|---|---|---|---|---|---|
+| ORIGIN (pulsos) | 0 | −115290 | −111622 | 1 | 42647 | 1392 |
+| CURRENT (pulsos) | 0 | −115290 | −111622 | 1 | 42647 | 1392 |
+
+Los valores de *ORIGIN* y *CURRENT* son idénticos, es decir, en el momento de la foto el robot estaba exactamente en esa posición home de trabajo. La lectura se hizo de una foto tomada en ángulo; conviene verificar los dígitos en el pendant.
+
+> **[POR COMPLETAR]** Convertir los pulsos a grados con los factores pulsos/grado de cada eje (manual del MH6) para llenar la tabla de configuraciones de arriba.
+
+**Nota sobre el home de calibración.** En los controladores Yaskawa, la *home position* de calibración es la postura marcada con indicadores de alineación en cada eje, y en ella el controlador lee **0 pulsos en cada eje**. La *work home position* de la foto es distinta: es una posición de trabajo definida en el controlador, por eso sus valores en pulsos no son cero (salvo el eje S).
 
 **¿Cuál posición es mejor?** Ninguna es mejor en términos absolutos, porque cumplen funciones distintas. La posición compacta es preferible para transportar o guardar el robot, porque minimiza el volumen y el riesgo de colisión. La posición desplegada es preferible para operar, porque deja al robot cerca de su espacio de trabajo y listo para recibir movimientos. La elección depende del uso.
 
@@ -83,6 +132,11 @@ El Motoman MH6 tiene dos configuraciones home de uso distinto:
 ## 5. Movimiento manual del Motoman
 
 El movimiento manual se hace desde el *teach pendant* (consola de programación) del controlador.
+
+<p align="center">
+  <img src="img/pendant_work_home.jpg" alt="Teach pendant del Motoman" width="70%">
+  <br><em>Teach pendant: en la parte superior se ven el selector de modo con llave (<code>REMOTE</code> / <code>PLAY</code> / <code>TEACH</code>), los botones <code>START</code> y <code>HOLD</code> y el paro de emergencia; abajo, la pantalla y el panel de teclas (<code>COORD</code> visible en el borde inferior).</em>
+</p>
 
 **Procedimiento general**
 
@@ -93,6 +147,8 @@ El movimiento manual se hace desde el *teach pendant* (consola de programación)
 5. Activar los servos con **[SERVO ON READY]** y mantener presionado levemente el **interruptor de habilitación (enable switch)** ubicado en la parte posterior del pendant.
 6. Mantener presionada la tecla del eje deseado para mover el robot. Se pueden presionar varias teclas a la vez para mover varios ejes simultáneamente.
 7. Mientras se mantiene una tecla de eje, **[HIGH SPEED]** hace que el robot se mueva más rápido que la velocidad seleccionada (no funciona en nivel INCH).
+
+> En la foto, la barra inferior de la pantalla muestra el aviso *"Robot is stopped by P.P. emergency stop"*, es decir, el robot estaba detenido por el paro de emergencia del pendant. Hay que liberarlo antes de activar los servos.
 
 **Cambio de modo con [COORD].** Cada vez que se presiona la tecla, el sistema de coordenadas cambia en el orden: **Articulaciones (JOINT) → Cartesiano / Cilíndrico → Herramienta (TOOL) → Usuario (USER)**. El modo activo aparece en el área de estado de la pantalla.
 
@@ -125,7 +181,12 @@ El controlador ofrece **cuatro niveles de velocidad** para el movimiento manual:
 
 **Cómo identificar el nivel en la pantalla.** La velocidad manual seleccionada se muestra en el **área de estado** del pendant, mediante un ícono con barras de nivel, similar al indicador de señal de un teléfono celular, que aumenta con cada nivel (inching, baja, media, alta).
 
-> **[POR COMPLETAR]** Adjuntar una foto de la pantalla del pendant mostrando el indicador.
+<p align="center">
+  <img src="img/pendant_barra_estado.jpg" alt="Barra de estado del pendant con el indicador de velocidad manual" width="80%">
+  <br><em>Barra de estado del pendant (ampliada). El tercer ícono, con una <code>M</code> y barras verdes crecientes, es el indicador de velocidad manual.</em>
+</p>
+
+> **[POR COMPLETAR / VERIFICAR]** Indicar qué nivel marcaba el indicador en la foto (cuántas barras estaban llenas). Con la resolución de la imagen no es posible leerlo con certeza.
 
 ---
 
@@ -248,9 +309,35 @@ Después de dibujar el corazón, el robot escribe los nombres **"Julieth"** y **
 
 > **[POR COMPLETAR]** Insertar aquí la imagen del diagrama de flujo (por ejemplo `diagrama_flujo.png`).
 
+### Entorno de la celda
+
+<p align="center">
+  <img src="img/celda_vista_general.jpg" alt="Vista general de la celda del Motoman MH6" width="90%">
+  <br><em>Vista general de la celda desde el frente del robot.</em>
+</p>
+
+<p align="center">
+  <img src="img/motoman_pose_vertical.jpg" alt="Motoman MH6 junto al torno CNC y la celda Epson" width="90%">
+  <br><em>Motoman MH6 sobre su base azul, con el torno CNC a un lado y la celda Epson/CDM con cerramiento transparente al fondo.</em>
+</p>
+
+Elementos que se identifican en las fotos:
+
+| Elemento | Observación |
+|---|---|
+| Motoman MH6 | Montado sobre una base azul, con cadena portacables (energy chain) hacia el piso |
+| Herramienta | Herramienta neumática con varios elementos de agarre montada en la muñeca |
+| Torno CNC | Torno de la marca Jinn Fa (JF), modelo con rótulo `32AB`, junto al robot |
+| Alimentador de barra | Riel largo y oscuro al costado izquierdo del robot, con un tablero de madera perforado |
+| Banco con servomotor | Servomotor con disco montado sobre un bastidor de perfil de aluminio |
+| Celda Epson / CDM | Gabinete con cerramiento transparente y rótulos *EPSON* y *CDM*, al fondo a la derecha |
+| Pendant | Consola de programación del controlador, con paro de emergencia |
+
+> **[POR COMPLETAR / VERIFICAR]** Confirmar los nombres y la función de cada elemento en el laboratorio (por ejemplo, si el torno y el alimentador participan en esta práctica o son solo parte del entorno).
+
 ### Plano de planta
 
-> **[POR COMPLETAR]** Insertar aquí la imagen del plano de planta con la ubicación de cada elemento (por ejemplo `plano_planta.png`).
+> **[POR COMPLETAR]** Insertar aquí la imagen del plano de planta con la ubicación de cada elemento (por ejemplo `plano_planta.png`). Las fotos de la sección anterior sirven de referencia para ubicar el robot, el torno, el alimentador y la celda Epson.
 
 ### Videos
 
@@ -298,4 +385,3 @@ pip install robodk matplotlib
 - Yaskawa, *DX100 Operator's Manual* (teclas del pendant, velocidad manual y sistemas de coordenadas).
 - ABB, hojas de datos del IRB 140 (IRB 140 product data sheet, 2021).
 - RoboDK, documentación del driver para Yaskawa Motoman: <https://robodk.com/doc/en/Robots-Motoman-RoboDK-driver-Yaskawa-Motoman.html>
-
