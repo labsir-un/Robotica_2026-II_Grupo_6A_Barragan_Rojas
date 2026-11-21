@@ -368,11 +368,13 @@ pip install robodk matplotlib
 
 **Ejecución en el robot físico**
 
-1. Conectar el PC al controlador por Ethernet y colocar el pendant en **REMOTE**.
-2. En RoboDK: **Connect → Connect to Robot**, ingresar la IP del controlador (driver MotomanHSE) y conectar.
-3. Verificar que el área de trabajo esté libre y ejecutar el programa con **Run on robot**.
+El programa no se ejecutó de forma automática desde el PC, sino con el *teach pendant* en la mano. Primero se cargó el programa al controlador por Ethernet y luego se ejecutó desde el pendant:
 
-
+1. Ejecutar `corazon.py` en RoboDK, que genera el programa del robot a partir de la trayectoria.
+2. Con el PC y el controlador conectados por Ethernet, enviar el programa al controlador desde RoboDK.
+3. En el pendant, seleccionar el programa (*job*) cargado.
+4. Verificar que el área de trabajo esté libre, activar los servos con **[SERVO ON READY]** y sujetar el interruptor de habilitación (*enable switch*) de la parte posterior del pendant.
+5. Ejecutar la trayectoria desde el pendant, con velocidad baja y con una persona atenta al paro de emergencia.
 > **Seguridad:** verificar que nadie esté dentro del área de trabajo del robot y mantener al alcance el botón de paro de emergencia.
 
 ---
