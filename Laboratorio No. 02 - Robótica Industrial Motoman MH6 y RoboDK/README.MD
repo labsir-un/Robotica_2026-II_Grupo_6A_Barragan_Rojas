@@ -78,8 +78,8 @@ El Motoman MH6 tiene dos configuraciones home de uso distinto:
 
 | Configuración | Nombre en el laboratorio | Uso | S (°) | L (°) | U (°) | R (°) | B (°) | T (°) |
 |---|---|---|---|---|---|---|---|---|
-| Compacta | **[POR COMPLETAR: home1 o home2]** | Transporte / reposo | [..] | [..] | [..] | [..] | [..] | [..] |
-| Desplegada | **[POR COMPLETAR: home1 o home2]** | Operación | [..] | [..] | [..] | [..] | [..] | [..] |
+| Compacta | Home 1 | Transporte / reposo | 0 | -115290 | -111622 | 1 | 42647 | 1392 |
+| Desplegada | Home 2 | Operación | 0 | 2037 | 2359 | 0 | -121 | 1392 |
 
 ### Pantalla *Work Home Position* del pendant
 
@@ -95,7 +95,7 @@ La pantalla muestra, para el robot R1, la posición home de trabajo (*ORIGIN*) y
 | ORIGIN (pulsos) | 0 | −115290 | −111622 | 1 | 42647 | 1392 |
 | CURRENT (pulsos) | 0 | −115290 | −111622 | 1 | 42647 | 1392 |
 
-Los valores de *ORIGIN* y *CURRENT* son idénticos, es decir, en el momento de la foto el robot estaba exactamente en esa posición home de trabajo. La lectura se hizo de una foto tomada en ángulo; conviene verificar los dígitos en el pendant.
+Los valores de *ORIGIN* y *CURRENT* son idénticos, es decir, en el momento de la foto el robot estaba exactamente en esa posición home de trabajo. La lectura se hizo de una foto tomada en ángulo.
 
 > **[POR COMPLETAR]** Convertir los pulsos a grados con los factores pulsos/grado de cada eje (manual del MH6) para llenar la tabla de configuraciones de arriba.
 
@@ -217,7 +217,7 @@ Para Motoman, RoboDK usa el driver **MotomanHSE**, basado en el protocolo **High
 | IP del PC | **[POR COMPLETAR]** |
 | Modelo del controlador | DX100 |
 
-> En `corazon.py` el bloque de conexión (`robot.Connect()` y `robot.ConnectedState()`) está **comentado**; la conexión al robot físico se hizo desde la interfaz de RoboDK (**[POR COMPLETAR: confirmar]**).
+> En `corazon.py` el bloque de conexión (`robot.Connect()` y `robot.ConnectedState()`) está **comentado** para solo ser simulado; este bloque se descomenta y se encarga de la conexión al robot físico, por medio de la interfaz de RoboDK.
 
 ---
 
@@ -297,7 +297,10 @@ Después de dibujar el corazón, el robot escribe los nombres **"Julieth"** y **
 
 ### Diagrama de flujo de acciones del robot
 
-> **[POR COMPLETAR]** Insertar aquí la imagen del diagrama de flujo (por ejemplo `diagrama_flujo.png`).
+<p align="center">
+  <img src="img/diagrama_flujo.png" alt="Diagrama de flujo de acciones del robot en corazon.py" width="80%">
+  <br><em>Diagrama de flujo de las acciones del robot: aproximación, trazo del corazón y escritura de los nombres.</em>
+</p>
 
 ### Entorno de la celda
 
@@ -323,7 +326,7 @@ Elementos que se identifican en las fotos:
 | Celda Epson / CDM | Gabinete con cerramiento transparente y rótulos *EPSON* y *CDM*, al fondo a la derecha |
 | Pendant | Consola de programación DX100, con paro de emergencia |
 
-> **[POR COMPLETAR / VERIFICAR]** Confirmar los nombres y la función de cada elemento en el laboratorio (por ejemplo, si el torno y el alimentador participan en esta práctica o son solo parte del entorno).
+Cabe destacar que para este laboratorio solo se utilizó el robot motoman, todos los demás elementos que se identifican en las fotos, solo hacen parte del entorno en el que se encuentra el robot.
 
 ### Plano de planta
 
