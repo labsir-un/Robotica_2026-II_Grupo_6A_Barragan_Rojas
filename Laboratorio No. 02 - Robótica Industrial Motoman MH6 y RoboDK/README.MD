@@ -145,7 +145,7 @@ El movimiento manual se hace desde el *teach pendant* (consola de programación)
 | Ejes de muñeca | **Y−/B−, Y+/B+** | Movimiento de B | Rotación alrededor de Y (Ry) |
 | Ejes de muñeca | **Z−/T−, Z+/T+** | Giro de T | Rotación alrededor de Z (Rz) |
 
-> Las teclas de rotación se asignan según las etiquetas del pendant (R↔X, B↔Y, T↔Z), tomadas de las diapositivas del curso. **[VERIFICAR EN EL PENDANT]** que en el laboratorio coincidan con el comportamiento observado.
+> Las teclas de rotación se asignan según las etiquetas del pendant (R↔X, B↔Y, T↔Z).
 
 ---
 
@@ -172,7 +172,7 @@ El controlador ofrece **cuatro niveles de velocidad** para el movimiento manual,
   <br><em>Barra de estado del pendant (ampliada). El tercer ícono, con una <code>M</code> y barras verdes crecientes, es el indicador de velocidad manual.</em>
 </p>
 
-En la foto, el tercer ícono muestra la letra **M**, que corresponde a **velocidad media**. **[VERIFICAR]** contando las barras verdes (deben ser dos) en la foto original.
+En la foto, el tercer ícono muestra la letra **M**, que corresponde a **velocidad media**.
 
 ---
 
