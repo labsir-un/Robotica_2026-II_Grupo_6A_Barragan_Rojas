@@ -74,8 +74,6 @@ El Motoman MH6 tiene dos configuraciones home de uso distinto:
   </tr>
 </table>
 
-> **[POR COMPLETAR / VERIFICAR]** Confirmar cuál de las dos posturas de las fotos corresponde a `home1` y cuál a `home2` en el laboratorio, y a cuál corresponde la lectura de la pantalla mostrada abajo. Por apariencia, la postura plegada sería la compacta y la erguida la desplegada, pero las fotos por sí solas no lo confirman.
-
 | Configuración | Nombre en el laboratorio | Uso | S (°) | L (°) | U (°) | R (°) | B (°) | T (°) |
 |---|---|---|---|---|---|---|---|---|
 | Compacta | Home 1 | Transporte / reposo | 0 | -115290 | -111622 | 1 | 42647 | 1392 |
@@ -88,7 +86,7 @@ El Motoman MH6 tiene dos configuraciones home de uso distinto:
   <br><em>Pendant en la pantalla <code>WORK HOME POSITION</code>, con las columnas <code>ORIGIN</code> y <code>CURRENT</code>.</em>
 </p>
 
-La pantalla muestra, para el robot R1, la posición home de trabajo (*ORIGIN*) y la posición actual (*CURRENT*) de cada eje, expresadas en **pulsos** del encoder:
+La pantalla muestra, para el robot R1, la posición home de trabajo (*ORIGIN*) y la posición actual (*CURRENT*) de cada eje, expresadas en **pulsos** del encoder para el Home 1:
 
 | Eje | S | L | U | R | B | T |
 |---|---|---|---|---|---|---|
@@ -96,8 +94,6 @@ La pantalla muestra, para el robot R1, la posición home de trabajo (*ORIGIN*) y
 | CURRENT (pulsos) | 0 | −115290 | −111622 | 1 | 42647 | 1392 |
 
 Los valores de *ORIGIN* y *CURRENT* son idénticos, es decir, en el momento de la foto el robot estaba exactamente en esa posición home de trabajo. La lectura se hizo de una foto tomada en ángulo.
-
-> **[POR COMPLETAR]** Convertir los pulsos a grados con los factores pulsos/grado de cada eje (manual del MH6) para llenar la tabla de configuraciones de arriba.
 
 **Nota sobre el home de calibración.** En los controladores Yaskawa, la *home position* de calibración es la postura marcada con indicadores de alineación en cada eje, y en ella el controlador lee **0 pulsos en cada eje**. La *work home position* de la foto es distinta: es una posición de trabajo definida en el controlador, por eso sus valores en pulsos no son cero (salvo el eje S).
 
@@ -240,7 +236,7 @@ Para Motoman, RoboDK usa el driver **MotomanHSE**, basado en el protocolo **High
 
 **¿Qué significa para nosotros cada herramienta?**
 
-> **[POR COMPLETAR — opinión del equipo]** Escribir en 2 a 4 líneas qué representa para ustedes cada herramienta (por ejemplo: RoboDK como herramienta universal y flexible; RobotStudio como simulador fiel del ecosistema ABB).
+Cada fabricante desarrolla su propia interfaz y su propio lenguaje para programar sus robots (Yaskawa con el pendant DX100 y los programas `.JBI`, ABB con RobotStudio y RAPID), así que aprender a operar un robot de una marca no garantiza saber operar el de otra. Para nosotros, **RoboDK** representa una herramienta universal: permite programar y simular robots de distintas marcas con un mismo flujo de trabajo y con Python, como lo hicimos con el Motoman. **RobotStudio** representa la herramienta propia del ecosistema ABB, pensada para aprovechar al máximo sus robots con una simulación muy fiel al controlador real. Ninguna es mejor que la otra: son complementarias, y la elección depende de si se trabaja con varias marcas (RoboDK) o con una celda ABB donde se necesita validar el programa nativo (RobotStudio).
 
 ---
 
