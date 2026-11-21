@@ -34,13 +34,13 @@
 |---|---|---|
 | Fabricante | Yaskawa Motoman | ABB |
 | Estructura | Articulada vertical | Articulada vertical |
-| Grados de libertad | 6 | 6 |
+| Grados de libertad | 6 (ejes S, L, U, R, B, T) | 6 |
 | Carga útil | 6 kg | 6 kg (versión estándar; versiones antiguas: 5 kg) |
-| Alcance | 1422 mm horizontal · 2486 mm vertical | 810 mm (hasta el centro del eje 5) |
+| Alcance | 1422 mm horizontal · 2486 mm vertical (1722 mm sobre la base + 764 mm bajo ella) | 810 mm (hasta el centro del eje 5) |
 | Repetibilidad | ±0.08 mm (ISO 9283) | 0.03 mm (promedio, prueba ISO) |
 | Masa aproximada | 130 kg | 98 kg |
 | Montaje | Piso, pared, techo | Piso y pared |
-| Controlador | DX100 (también DXM100) | IRC5 |
+| Controlador | DX100 (octava generación de controladores Yaskawa; pendant con pantalla táctil a color) | IRC5 |
 | Rango de movimiento | S ±170° · L +155°/−90° · U +250°/−175° · R ±180° · B +225°/−45° · T ±360° | Eje 1: 360° · Eje 2: 200° · Eje 3: 280° · Eje 4: 400° (por defecto, ilimitado) · Eje 5: 240° · Eje 6: 800° (por defecto, ilimitado) |
 | Velocidad máxima por eje | S 220 · L 200 · U 220 · R 410 · B 410 · T 610 °/s | Ejes 1–2: 200 · Eje 3: 260 · Ejes 4–5: 360 · Eje 6: 450 °/s |
 | Velocidad máxima TCP | No indicada en el manual | 2.5 m/s |
@@ -50,7 +50,7 @@
 
 **Análisis.** Ambos robots tienen la misma carga útil (6 kg), pero el MH6 alcanza aproximadamente 76 % más (1422 mm frente a 810 mm), a costa de mayor masa (130 kg frente a 98 kg) y menor repetibilidad (±0.08 mm frente a 0.03 mm). Por eso el MH6 es más adecuado para celdas donde se necesita cubrir un espacio de trabajo grande, mientras que el IRB140 es más compacto y preciso, ideal para tareas finas en espacios reducidos. En velocidad angular, el MH6 es más rápido en los ejes S, R, B y T, y el IRB140 en el eje U (260 frente a 220 °/s).
 
-> Los datos del MH6 provienen del manual *MOTOMAN-MH6 Instructions* (HW0484977). Los del IRB140, de las hojas de datos de ABB. Ver [Referencias](#9-referencias).
+> Los datos del MH6 provienen del manual *MOTOMAN-MH6 Instructions* (HW0484977) y de las diapositivas del curso (espacio de trabajo y controlador DX100). Los del IRB140, de las hojas de datos de ABB. Ver [Referencias](#9-referencias).
 
 ---
 
@@ -107,7 +107,7 @@ Los valores de *ORIGIN* y *CURRENT* son idénticos, es decir, en el momento de l
 
 ## 3. Movimiento manual del Motoman
 
-El movimiento manual se hace desde el *teach pendant* (consola de programación) del controlador.
+El movimiento manual se hace desde el *teach pendant* (consola de programación) del controlador **DX100**. Este pendant tiene una pantalla táctil a color de 6.5", corre WindowsCE.net, tiene ranura para tarjeta Compact Flash y un **interruptor de habilitación (deadman) de 3 posiciones** en su parte posterior.
 
 <p align="center">
   <img src="img/pendant_work_home.jpg" alt="Teach pendant del Motoman" width="70%">
@@ -120,49 +120,63 @@ El movimiento manual se hace desde el *teach pendant* (consola de programación)
 2. Seleccionar el grupo de control (robot) con la tecla **[ROBOT]**, si el controlador tiene varios.
 3. Seleccionar el sistema de coordenadas con **[COORD]** (ver abajo).
 4. Seleccionar la velocidad manual con **[FAST]** / **[SLOW]** (ver [sección 4](#4-niveles-de-velocidad-manual)).
-5. Activar los servos con **[SERVO ON READY]** y mantener presionado levemente el **interruptor de habilitación (enable switch)** ubicado en la parte posterior del pendant.
+5. Activar los servos con **[SERVO ON READY]** y sujetar el **interruptor de habilitación (enable switch)** ubicado en la parte posterior del pendant. Con una presión **leve** los servos quedan habilitados; si se aprieta **a fondo**, la potencia se **corta** (por eso es de 3 posiciones).
 6. Mantener presionada la tecla del eje deseado para mover el robot. Se pueden presionar varias teclas a la vez para mover varios ejes simultáneamente.
 7. Mientras se mantiene una tecla de eje, **[HIGH SPEED]** hace que el robot se mueva más rápido que la velocidad seleccionada (no funciona en nivel INCH).
 
 > En la foto, la barra inferior de la pantalla muestra el aviso *"Robot is stopped by P.P. emergency stop"*, es decir, el robot estaba detenido por el paro de emergencia del pendant. Hay que liberarlo antes de activar los servos.
 
-**Cambio de modo con [COORD].** Cada vez que se presiona la tecla, el sistema de coordenadas cambia en el orden: **Articulaciones (JOINT) → Cartesiano / Cilíndrico → Herramienta (TOOL) → Usuario (USER)**. El modo activo aparece en el área de estado de la pantalla.
+**Ejes del manipulador.** El MH6 tiene seis ejes: **S** (giro de la base), **L** (brazo inferior), **U** (brazo superior), **R** (rotación del antebrazo), **B** (flexión de la muñeca) y **T** (giro de la brida de la muñeca).
 
-| Modo | Teclas | Movimiento |
+**Cambio de modo con [COORD].** Cada vez que se presiona la tecla, el sistema de coordenadas cambia. El DX100 maneja cinco sistemas, cada uno con su propio ícono en el área de estado:
+
+| Modo | Ícono | Movimiento |
 |---|---|---|
-| Articulaciones (JOINT) | **S−/S+, L−/L+, U−/U+, R−/R+, B−/B+, T−/T+** | Mueve cada articulación individualmente |
-| Cartesiano | **X−/X+, Y−/Y+, Z−/Z+** | Traslación del TCP a lo largo de los ejes X, Y, Z |
-| Cartesiano (rotación) | Teclas de rotación en las posiciones de R, B, T | Rotación de la herramienta alrededor de X, Y, Z (Rx, Ry, Rz) |
+| Articulaciones (JOINT) | Brazo robótico sobre ejes | Cada articulación se mueve individualmente |
+| Cartesiano | Cuadro amarillo sobre ejes | Traslación del TCP a lo largo de los ejes X, Y, Z **de la base** del robot |
+| Cilíndrico | Flecha circular sobre ejes | Movimiento en coordenadas cilíndricas (giro alrededor del eje de la base, radio y altura) |
+| Herramienta (TOOL) | Herramienta sobre ejes | Traslación y rotación respecto a los ejes X, Y, Z **de la herramienta** (útil para acercarse o alejarse de una pieza en la dirección de la herramienta) |
+| Usuario (USER) | Letra *U* sobre ejes | Movimiento respecto a un sistema de coordenadas definido por el usuario |
 
-> **[POR COMPLETAR / VERIFICAR EN EL PENDANT]** Confirmar la correspondencia exacta de las teclas de rotación en el pendant del laboratorio (cuáles teclas producen Rx, Ry y Rz).
+**Teclas de eje.** Cada tecla tiene doble etiqueta: la misma tecla física mueve un eje articular en modo JOINT y un eje cartesiano en modo cartesiano.
+
+| Grupo | Tecla (etiqueta cartesiana / articular) | En modo JOINT | En modo cartesiano |
+|---|---|---|---|
+| Ejes básicos | **X−/S−, X+/S+** | Giro de S | Traslación en X |
+| Ejes básicos | **Y−/L−, Y+/L+** | Movimiento de L | Traslación en Y |
+| Ejes básicos | **Z−/U−, Z+/U+** | Movimiento de U | Traslación en Z |
+| Ejes de muñeca | **X−/R−, X+/R+** | Giro de R | Rotación alrededor de X (Rx) |
+| Ejes de muñeca | **Y−/B−, Y+/B+** | Movimiento de B | Rotación alrededor de Y (Ry) |
+| Ejes de muñeca | **Z−/T−, Z+/T+** | Giro de T | Rotación alrededor de Z (Rz) |
+
+> Las teclas de rotación se asignan según las etiquetas del pendant (R↔X, B↔Y, T↔Z), tomadas de las diapositivas del curso. **[VERIFICAR EN EL PENDANT]** que en el laboratorio coincidan con el comportamiento observado.
 
 ---
 
 ## 4. Niveles de velocidad manual
 
-El controlador ofrece **cuatro niveles de velocidad** para el movimiento manual:
+El controlador ofrece **cuatro niveles de velocidad** para el movimiento manual, cada uno con su ícono en el área de estado (una letra y un indicador de barras verdes):
 
-| Nivel | Indicación en pantalla | Descripción |
-|---|---|---|
-| INCH | Inching | Movimiento paso a paso |
-| SLOW | `SLW` | Velocidad baja |
-| MEDIUM | `MED` | Velocidad media |
-| FAST | `FST` | Velocidad alta |
+| Nivel | Ícono (letra) | Barras verdes | Descripción |
+|---|---|---|---|
+| Inching | **I** | Ninguna | Movimiento paso a paso |
+| Low Speed | **L** | Una | Velocidad baja |
+| Medium Speed | **M** | Dos | Velocidad media |
+| High Speed | **H** | Tres | Velocidad alta |
 
 **Cómo cambiar de nivel**
 
-- Cada vez que se presiona **[FAST]**, la velocidad sube en el orden: INCH → SLOW → MED → FST.
-- Cada vez que se presiona **[SLOW]**, la velocidad baja en el orden: FST → MED → SLOW → INCH.
+- Con las teclas **[FAST]** y **[SLOW]** (*manual speed keys*): **[FAST]** sube un nivel (I → L → M → H) y **[SLOW]** baja un nivel (H → M → L → I).
 - Con **[HIGH SPEED]** + una tecla de eje, el robot se mueve más rápido que la velocidad usual (deshabilitado en INCH).
 
-**Cómo identificar el nivel en la pantalla.** La velocidad manual seleccionada se muestra en el **área de estado** del pendant, mediante un ícono con barras de nivel, similar al indicador de señal de un teléfono celular, que aumenta con cada nivel (inching, baja, media, alta).
+**Cómo identificar el nivel en la pantalla.** El **área de estado** del pendant (arriba a la derecha) muestra una fila de íconos. La velocidad manual es el **ícono C, el tercero de la fila**. Los demás son: A, grupo de ejes de operación; B, sistema de coordenadas; D, modo de seguridad (operación, edición o administración); E, ciclo de operación; F, estado de ejecución (stop, hold, paro de emergencia, alarma, operando); G, modo (REMOTE / PLAY / TEACH); H, página; I, multimodo; J, batería débil; K, guardando datos.
 
 <p align="center">
   <img src="img/pendant_barra_estado.jpg" alt="Barra de estado del pendant con el indicador de velocidad manual" width="80%">
   <br><em>Barra de estado del pendant (ampliada). El tercer ícono, con una <code>M</code> y barras verdes crecientes, es el indicador de velocidad manual.</em>
 </p>
 
-> **[POR COMPLETAR / VERIFICAR]** Indicar qué nivel marcaba el indicador en la foto (cuántas barras estaban llenas). Con la resolución de la imagen no es posible leerlo con certeza.
+En la foto, el tercer ícono muestra la letra **M**, que corresponde a **velocidad media**. **[VERIFICAR]** contando las barras verdes (deben ser dos) en la foto original.
 
 ---
 
@@ -201,7 +215,7 @@ Para Motoman, RoboDK usa el driver **MotomanHSE**, basado en el protocolo **High
 | Driver | MotomanHSE |
 | IP del controlador | **[POR COMPLETAR]** |
 | IP del PC | **[POR COMPLETAR]** |
-| Modelo del controlador | **[POR COMPLETAR]** (el manual del MH6 indica DX100) |
+| Modelo del controlador | DX100 |
 
 > En `corazon.py` el bloque de conexión (`robot.Connect()` y `robot.ConnectedState()`) está **comentado**; la conexión al robot físico se hizo desde la interfaz de RoboDK (**[POR COMPLETAR: confirmar]**).
 
@@ -307,7 +321,7 @@ Elementos que se identifican en las fotos:
 | Alimentador de barra | Riel largo y oscuro al costado izquierdo del robot, con un tablero de madera perforado |
 | Banco con servomotor | Servomotor con disco montado sobre un bastidor de perfil de aluminio |
 | Celda Epson / CDM | Gabinete con cerramiento transparente y rótulos *EPSON* y *CDM*, al fondo a la derecha |
-| Pendant | Consola de programación del controlador, con paro de emergencia |
+| Pendant | Consola de programación DX100, con paro de emergencia |
 
 > **[POR COMPLETAR / VERIFICAR]** Confirmar los nombres y la función de cada elemento en el laboratorio (por ejemplo, si el torno y el alimentador participan en esta práctica o son solo parte del entorno).
 
@@ -357,7 +371,8 @@ pip install robodk matplotlib
 
 ## 9. Referencias
 
+- R. E. Ramírez y P. F. Cárdenas, *Fundamentos de Robótica Industrial: Teach Pendant DX100, Manipulador Motoman MH6. Programación y Operación Básica* (diapositivas del curso). Departamento de Ingeniería Mecánica y Mecatrónica, Universidad Nacional de Colombia.
+- F. López, *Programación y operación básica*, presentación de la Universidad Nacional de Colombia, tomada y modificada en las diapositivas anteriores.
 - Yaskawa, *MOTOMAN-MH6 Instructions* (manual HW0484977).
-- Yaskawa, *DX100 Operator's Manual* (teclas del pendant, velocidad manual y sistemas de coordenadas).
 - ABB, hojas de datos del IRB 140 (IRB 140 product data sheet, 2021).
 - RoboDK, documentación del driver para Yaskawa Motoman: <https://robodk.com/doc/en/Robots-Motoman-RoboDK-driver-Yaskawa-Motoman.html>
