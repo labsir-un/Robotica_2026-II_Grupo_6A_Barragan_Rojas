@@ -365,6 +365,11 @@ pip install robodk matplotlib
 2. En RoboDK: **Connect → Connect to Robot**, ingresar la IP del controlador (driver MotomanHSE) y conectar.
 3. Verificar que el área de trabajo esté libre y ejecutar el programa con **Run on robot**.
 
+
+## Evidencia de funcionamiento / Video de la práctica
+[![Ver el video](https://img.youtube.com/vi/PLJES83OFaA/maxresdefault.jpg)](https://youtu.be/PLJES83OFaA)
+
+
 > **Seguridad:** verificar que nadie esté dentro del área de trabajo del robot y mantener al alcance el botón de paro de emergencia.
 
 ---
