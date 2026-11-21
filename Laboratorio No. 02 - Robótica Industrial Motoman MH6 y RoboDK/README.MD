@@ -327,16 +327,24 @@ Elementos que se identifican en las fotos:
 
 ### Plano de planta
 
-> **[POR COMPLETAR]** Insertar aquí la imagen del plano de planta con la ubicación de cada elemento (por ejemplo `plano_planta.png`). Las fotos de la sección anterior sirven de referencia para ubicar el robot, el torno, el alimentador y la celda Epson.
+<p align="center">
+  <img src="img/plano_planta.jpeg" alt="Plano de planta de la celda del Motoman MH6 (vista superior)" width="90%">
+  <br><em>Plano de planta en vista superior. Cotas en metros, medidas entre centros de los elementos; breakers y totalizador dibujados de forma esquemática.</em>
+</p>
+
+| Elemento | Dimensiones / ubicación |
+|---|---|
+| Eje del robot (riel) | 4.00 m × 0.80 m; el robot está montado hacia el extremo derecho del riel |
+| Robot Motoman MH6 | Sobre el riel, con el frente orientado hacia abajo en el plano |
+| Eje externo | 1.16 m × 0.50 m; a 0.90 m a la derecha del robot y a 1.15 m hacia atrás |
+| Controlador (DX100) | 0.80 m × 0.65 m; a 2.46 m del robot |
+| Breakers | A 0.80 m del controlador |
+| Totalizador | A 0.93 m de los breakers y a 0.60 m del controlador en el eje vertical |
 
 ### Videos
 
-Los videos deben comenzar con la introducción oficial de LabSIR.
-
-| Video | Enlace |
-|---|---|
-| Simulación en RoboDK | **[POR COMPLETAR]** |
-| Ejecución física en el Motoman MH6 (controlado desde el PC) | **[POR COMPLETAR]** |
+## Evidencia de funcionamiento / Video de la práctica
+[![Ver el video](https://img.youtube.com/vi/PLJES83OFaA/maxresdefault.jpg)](https://youtu.be/PLJES83OFaA)
 
 ---
 
@@ -364,10 +372,6 @@ pip install robodk matplotlib
 1. Conectar el PC al controlador por Ethernet y colocar el pendant en **REMOTE**.
 2. En RoboDK: **Connect → Connect to Robot**, ingresar la IP del controlador (driver MotomanHSE) y conectar.
 3. Verificar que el área de trabajo esté libre y ejecutar el programa con **Run on robot**.
-
-
-## Evidencia de funcionamiento / Video de la práctica
-[![Ver el video](https://img.youtube.com/vi/PLJES83OFaA/maxresdefault.jpg)](https://youtu.be/PLJES83OFaA)
 
 
 > **Seguridad:** verificar que nadie esté dentro del área de trabajo del robot y mantener al alcance el botón de paro de emergencia.
