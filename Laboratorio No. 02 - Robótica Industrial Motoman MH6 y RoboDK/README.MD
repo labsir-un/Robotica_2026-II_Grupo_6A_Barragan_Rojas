@@ -294,7 +294,7 @@ Después de dibujar el corazón, el robot escribe los nombres **"Julieth"** y **
 ### Diagrama de flujo de acciones del robot
 
 <p align="center">
-  <img src="img/diagrama_flujo.jpg" alt="Diagrama de flujo de acciones del robot en corazon.py" width="80%">
+  <img src="img/diagrama_flujo.jpeg" alt="Diagrama de flujo de acciones del robot en corazon.py" width="80%">
   <br><em>Diagrama de flujo de las acciones del robot: aproximación, trazo del corazón y escritura de los nombres.</em>
 </p>
 
